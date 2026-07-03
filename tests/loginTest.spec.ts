@@ -1,9 +1,18 @@
-import {test} from '@playwright/test';
-import { LoginPage } from '../pages/LoginPage';
+import {test} from '../fixtures/commonFixture';
+import {expect} from '@playwright/test';
 
-test.skip("Example test", async({page}) =>{
-  const loginPage = new LoginPage(page);
-  await loginPage.launchApplication();
-  await loginPage.login('Admin', 'admin123');
+test.beforeEach('Before Each Hook', async({loginPageFixture}) => {
+  await loginPageFixture.launchApplication();
+})
 
+// test.afterEach('After Each Hook', async({userPageFixture}) => {
+//   await userPageFixture.logout();
+// })
+
+test("Login test 1", async({page}) =>{
+  await expect(page).toHaveTitle(/OrangeHRM/);
+});
+
+test("Login test 2", async({page}) =>{
+  await expect(page).toHaveURL(/dashboard/);
 });
