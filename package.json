@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test_demo": "cross-env ENV_NAME=demo npx playwright test",
+    "test_demo_chrome_headed": "cross-env ENV_NAME=demo npx playwright test --project=chromium --headed",
+    "test_demo_firefox_headed": "cross-env ENV_NAME=demo npx playwright test --project=firefox --headed",
+    "test_demo_chrome_headless": "cross-env ENV_NAME=demo npx playwright test --project=chromium",
+    "test_demo_firefox_headless": "cross-env ENV_NAME=demo npx playwright test --project=firefox"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
