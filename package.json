@@ -16,10 +16,12 @@
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.61.1",
+    "@types/crypto-js": "^4.2.2",
     "@types/node": "^26.1.0"
   },
   "dependencies": {
     "cross-env": "^10.1.0",
+    "crypto-js": "^4.2.0",
     "dotenv": "^17.4.2"
   }
 }
