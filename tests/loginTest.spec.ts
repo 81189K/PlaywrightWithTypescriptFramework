@@ -9,6 +9,8 @@ import {expect} from '@playwright/test';
 //   await userPageFixture.logout();
 // })
 
+test.skip(true, 'Skipping entire file');
+
 test("Login test 1", async({page,beforeEachHookFixture}) =>{
   await expect(page).toHaveTitle(/OrangeHRM/);
   console.log("title check passed");

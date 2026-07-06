@@ -1,0 +1,5 @@
+{
+    "incorrectUsername": "Admin123",
+    "incorrectPassword": "asdf123",
+    "invalidLoginErrorText": "Invalid credentials"
+}

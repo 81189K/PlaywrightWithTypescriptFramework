@@ -6,12 +6,14 @@ export class LoginPage {
     readonly usernameInput: Locator;
     readonly passwordInput: Locator;
     readonly loginButton: Locator;
+    readonly invalidLoginErrorPopup: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.usernameInput = page.getByRole('textbox', { name: 'Username' });
         this.passwordInput = page.getByRole('textbox', { name: 'Password' });
         this.loginButton = page.getByRole('button', { name: 'Login' });
+        this.invalidLoginErrorPopup = page.getByRole('alert');
     }
 
     /**
