@@ -75,6 +75,10 @@ export default defineConfig({
         storageState: './playwright/.auth/auth.json'
        },
     },
+    {
+      name: 'APITest',
+      testDir: './tests/apiTests'
+    },
 
     /* Test against mobile viewports. */
     // {

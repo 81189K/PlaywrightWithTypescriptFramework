@@ -9,3 +9,5 @@ test('API Test-2', async({request})=>{
     const bookingDetails = await request.get('/booking/1');
     console.log(await bookingDetails.json());
 });
+
+//run cmd: npx playwright test --project=APITest
