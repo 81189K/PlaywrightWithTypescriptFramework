@@ -1,4 +1,4 @@
-import {test} from '../fixtures/hooksFixture';
+import {test} from '../../fixtures/hooksFixture';
 import {expect} from '@playwright/test';
 
 // test.beforeEach('Before Each Hook', async({loginPageFixture}) => {

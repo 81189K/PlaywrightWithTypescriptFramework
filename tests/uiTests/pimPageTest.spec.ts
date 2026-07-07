@@ -1,5 +1,5 @@
-import {test, expect} from '../fixtures/hooksFixture';
-import pimData from '../testdata/pimTestData.json';
+import {test, expect} from '../../fixtures/hooksFixture';
+import pimData from '../../testdata/pimTestData.json';
 
 test('[PIM] Add and verify a new employee in the PIM module', {
     tag: ['@UI', '@SMOKE' ],

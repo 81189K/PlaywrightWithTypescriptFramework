@@ -1,5 +1,5 @@
-import { test, expect } from '../fixtures/hooksFixture';
-import loginData from '../testdata/loginTestData.json';
+import { test, expect } from '../../fixtures/hooksFixture';
+import loginData from '../../testdata/loginTestData.json';
 // import {expect} from '@playwright/test'; // from hooksFixture.
 
 

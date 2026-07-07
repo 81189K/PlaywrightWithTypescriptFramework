@@ -1,4 +1,4 @@
-import { test } from '../fixtures/commonFixture';
+import { test } from '../../fixtures/commonFixture';
 import { expect } from '@playwright/test';
 
 test('Global Setup for Auto Login', async ({ page, loginPageFixture, dashboardPageFixture, commonUtilsFixture }) => {
