@@ -1,0 +1,12 @@
+{
+    "GET_ALL": {
+        "request":{
+            "resource": "/booking"
+        },
+        "response":{
+            "statusCode": 200,
+            "statusText": "OK",
+            "headerContentType": "application/json; charset=utf-8"
+        }
+    }
+}

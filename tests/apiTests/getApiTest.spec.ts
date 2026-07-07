@@ -1,4 +1,5 @@
 import {test, expect} from '../../fixtures/hooksFixture';
+import apiTestData from '../../testdata/apiTestData.json';
 
 // test('API Test-1', async({request})=>{
 //     const bookingIDs = await request.get('/booking');
@@ -20,15 +21,15 @@ test('Verify that the user is able to fetch all the booking IDs using GET API', 
         description: "GET"
     }
 }, async ({ request }) => {
-    const bookingIDsResponse = await request.get('/booking');
+    const bookingIDsResponse = await request.get(apiTestData.GET_ALL.request.resource);
     const bookingIDsJsonResponse = await bookingIDsResponse.json();
     console.log(bookingIDsJsonResponse);
     //verify response code/text
-    expect(bookingIDsResponse.status()).toBe(200);
-    expect(bookingIDsResponse.statusText()).toBe('OK');
+    expect(bookingIDsResponse.status()).toBe(apiTestData.GET_ALL.response.statusCode);
+    expect(bookingIDsResponse.statusText()).toBe(apiTestData.GET_ALL.response.statusText);
     expect(bookingIDsResponse.ok()).toBeTruthy();
     //verify response header
-    expect(bookingIDsResponse.headers()['content-type']).toBe('application/json; charset=utf-8');
+    expect(bookingIDsResponse.headers()['content-type']).toBe(apiTestData.GET_ALL.response.headerContentType);
     //verify response body is not empty
     expect(bookingIDsJsonResponse).not.toBeNull();
 });
