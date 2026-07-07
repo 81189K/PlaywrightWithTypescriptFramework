@@ -32,7 +32,7 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
-    baseURL: 'https://restful-booker.herokuapp.com',
+    baseURL: process.env.API_BASE_URL,
     extraHTTPHeaders:{
       Accept: 'application/json', //avoid adding headers here, as it may cause errors in UI tests execution
     },
