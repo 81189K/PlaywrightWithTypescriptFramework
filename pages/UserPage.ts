@@ -11,6 +11,15 @@ export class UserPage{
         this.logoutButton = page.getByRole('menuitem', { name: 'Logout' });
     }
 
+    /**
+     * Performs logout
+     * 
+     * ### Usage
+     * 
+     * ```typescript
+     * await loginPage.logout();
+     * ```
+     */
     async logout(){
         await this.userMenuButton.click();
         await this.logoutButton.click();

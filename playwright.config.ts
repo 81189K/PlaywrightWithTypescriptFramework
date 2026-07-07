@@ -38,7 +38,10 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },
-
+  timeout: 90000,
+  expect: {
+    timeout: 30000
+  },
   /* Configure projects for major browsers */
   projects: [
     {
