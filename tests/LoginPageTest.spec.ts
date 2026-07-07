@@ -33,6 +33,7 @@ test.describe('Invalid login tests', {
         await loginPageFixture.launchApplication(); //instead of beforeEachHookFixture fixture, directly calling launchApplication() using loginPageFixture
         await loginPageFixture.login(username, loginData.incorrectPassword);
         await expect(loginPageFixture.invalidLoginErrorPopup).toHaveText(loginData.invalidLoginErrorText);
+        // await expect(loginPageFixture.invalidLoginErrorPopup).toHaveText('failing intentionally to check --last-failed');
     })
 
     test('[Login] Verify login with an invalid username', {
