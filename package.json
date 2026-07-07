@@ -10,8 +10,9 @@
     "test_demo_chrome_headless": "cross-env ENV_NAME=demo npx playwright test --project=chromium",
     "test_demo_firefox_headless": "cross-env ENV_NAME=demo npx playwright test --project=firefox",
     "test_demo_ui": "cross-env ENV_NAME=demo npx playwright test --ui",
-    "test_smoke_chrome_headed": "cross-env ENV_NAME=demo npx playwright test --project=chromium --headed --grep=@SMOKE",
-    "test_sanity_chrome_headed": "cross-env ENV_NAME=demo npx playwright test --project=chromium --headed --grep=@SANITY"
+    "test_demo_smoke": "cross-env ENV_NAME=demo npx playwright test --project=chromium --headed --grep=@SMOKE",
+    "test_demo_sanity": "cross-env ENV_NAME=demo npx playwright test --project=chromium --headed --grep=@SANITY",
+    "test_demo_visual": "cross-env ENV_NAME=demo npx playwright test --project=chromium --headed --grep=@VISUAL"
   },
   "keywords": [],
   "author": "",

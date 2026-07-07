@@ -61,14 +61,17 @@ test.describe('Invalid login tests', {
 });
 
 test('[Login] Verify login with a valid username and password', {
-        tag: ['@UI', '@SMOKE'],
+        tag: ['@UI', '@VISUAL'],
         annotation: {
             type: 'Module',
             description: 'Login'
         }
-    }, async ({ page, beforeEachHookFixture, loginPageFixture, commonUtilsFixture}) => {
+    }, async ({ page, beforeEachHookFixture, loginPageFixture, commonUtilsFixture, navigationPanelPageFixture}) => {
         const password = commonUtilsFixture.decrypt(process.env.PASSWORD!);
         const username = commonUtilsFixture.decrypt(process.env.USER_NAME!);
         await loginPageFixture.login(username, password);
         await expect(page).toHaveURL(/dashboard/);
+        //Visual testing
+        await expect(navigationPanelPageFixture.orangeHrmLogo).toHaveScreenshot('OrangeHrmBrandLogo.png');
+        await expect(navigationPanelPageFixture.navigationPanel).toHaveScreenshot('NavigationPanel.png');
     })
