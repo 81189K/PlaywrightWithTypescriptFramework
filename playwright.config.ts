@@ -76,7 +76,7 @@ export default defineConfig({
        },
     },
     {
-      name: 'APITest',
+      name: 'apiTest',
       testDir: './tests/apiTests'
     },
 

@@ -10,4 +10,5 @@ test('API Test-2', async({request})=>{
     console.log(await bookingDetails.json());
 });
 
-//run cmd: npx playwright test --project=APITest
+//run cmd: npx playwright test --project=apiTest
+// npm run test_demo_api
