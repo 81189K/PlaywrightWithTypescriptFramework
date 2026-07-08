@@ -33,3 +33,43 @@ test('Verify that the user is able to fetch all the booking IDs using GET API', 
     //verify response body is not empty
     expect(bookingIDsJsonResponse).not.toBeNull();
 });
+
+test('Verify that the user is able to fetch the booking details for a given ID using GET API', {
+    tag: ['@API', '@SMOKE'],
+    annotation: {
+        type: "HTTP Method",
+        description: "GET"
+    }
+}, async ({ request }) => {
+    const bookingResponse = await request.get(`${apiTestData.GET_ID.request.resource}/${apiTestData.GET_ID.request.ID}`);
+    const bookingJsonResponse = await bookingResponse.json();
+    console.log(bookingJsonResponse);
+    //verify response code/text
+    expect(bookingResponse.status()).toBe(apiTestData.GET_ID.response.statusCode);
+    expect(bookingResponse.statusText()).toBe(apiTestData.GET_ID.response.statusText);
+    expect(bookingResponse.ok()).toBeTruthy();
+
+    //verify response body is not empty
+    expect(bookingJsonResponse).not.toBeNull();
+});
+
+test('Verify that the user is able to create new booking using POST API', {
+    tag: ['@API', '@SMOKE'],
+    annotation: {
+        type: "HTTP Method",
+        description: "POST"
+    }
+}, async ({ request }) => {
+    const createBookingResponse = await request.post(apiTestData.createBooking.request.resource, {
+        data: apiTestData.createBooking.request.payload,
+        headers: apiTestData.createBooking.request.headers
+
+    });
+    const bookingJsonResponse = await createBookingResponse.json();
+    console.log(bookingJsonResponse);
+    //verify response code
+    expect(createBookingResponse.status()).toBe(apiTestData.createBooking.response.statusCode);
+
+    //verify response body
+    expect(bookingJsonResponse.booking).toMatchObject(apiTestData.createBooking.request.payload);
+});
