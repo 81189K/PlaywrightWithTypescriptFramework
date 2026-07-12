@@ -36,6 +36,7 @@ export default defineConfig({
     //--avoid adding headers here, as it may cause errors in UI tests execution
     // extraHTTPHeaders:{
     //   Accept: 'application/json',
+        // Authorization: "Basic YWRtaW46cGFzc3dvcmQxMjM="
     // },
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */

@@ -42,5 +42,30 @@
             "statusCode": 200,
             "statusText": "OK"
         }
+    },
+    "updateBooking": {
+        "request":{
+            "resource": "/booking/1",
+            "headers": {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Authorization": "Basic YWRtaW46cGFzc3dvcmQxMjM=" 
+            },
+            "payload": {
+                "firstname": "Jim",
+                "lastname": "Smith",
+                "totalprice": 111,
+                "depositpaid": true,
+                "bookingdates": {
+                    "checkin": "2026-07-01",
+                    "checkout": "2026-07-07"
+                },
+                "additionalneeds": "Breakfast"
+            }
+        },
+        "response":{
+            "statusCode": 200,
+            "statusText": "OK"
+        }
     }
 }

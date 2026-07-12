@@ -73,3 +73,24 @@ test('Verify that the user is able to create new booking using POST API', {
     //verify response body
     expect(bookingJsonResponse.booking).toMatchObject(apiTestData.createBooking.request.payload);
 });
+
+test('Verify that the user is able to update an existing booking using PUT API', {
+    tag: ['@API', '@SMOKE'],
+    annotation: {
+        type: "HTTP Method",
+        description: "PUT"
+    }
+}, async ({ request }) => {
+    const updateBookingResponse = await request.put(apiTestData.updateBooking.request.resource, {
+        data: apiTestData.updateBooking.request.payload,
+        headers: apiTestData.updateBooking.request.headers
+
+    });
+    const bookingJsonResponse = await updateBookingResponse.json();
+    console.log(bookingJsonResponse);
+    //verify response code
+    expect(updateBookingResponse.status()).toBe(apiTestData.updateBooking.response.statusCode);
+
+    //verify response body
+    expect(bookingJsonResponse).toMatchObject(apiTestData.updateBooking.request.payload);
+});
