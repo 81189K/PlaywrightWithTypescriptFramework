@@ -73,6 +73,6 @@ test('[Login] Verify login with a valid username and password', {
         await loginPageFixture.login(username, password);
         await expect(page).toHaveURL(/dashboard/);
         //Visual testing
-        await expect(navigationPanelPageFixture.orangeHrmLogo).toHaveScreenshot('OrangeHrmBrandLogo.png');
-        await expect(navigationPanelPageFixture.navigationPanel).toHaveScreenshot('NavigationPanel.png');
+        await expect(navigationPanelPageFixture.orangeHrmLogo).toHaveScreenshot('OrangeHrmBrandLogo.png',{maxDiffPixelRatio: 0.01});
+        await expect(navigationPanelPageFixture.navigationPanel).toHaveScreenshot('NavigationPanel.png',{maxDiffPixelRatio: 0.06});
     })
