@@ -14,7 +14,8 @@
     "test_demo_sanity": "cross-env ENV_NAME=demo npx playwright test --project=chromium --headed --grep=@SANITY",
     "test_demo_visual": "cross-env ENV_NAME=demo npx playwright test --project=chromium --headed --grep=@VISUAL",
     "test_demo_lastfailed": "cross-env ENV_NAME=demo npx playwright test --project=chromium --headed --last-failed",
-    "test_demo_api": "cross-env ENV_NAME=demo npx playwright test --project=apiTest"
+    "test_demo_api": "cross-env ENV_NAME=demo npx playwright test --project=apiTest",
+    "test_demo_ui_chrome_headed_api": "cross-env ENV_NAME=demo npx playwright test --project=chromium --headed --project=apiTest"
   },
   "keywords": [],
   "author": "",

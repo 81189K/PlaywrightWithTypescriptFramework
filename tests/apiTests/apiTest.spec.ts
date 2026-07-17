@@ -66,7 +66,7 @@ test('Verify that the user is able to create new booking using POST API', {
 }, async ({ request }) => {
     const createBookingResponse = await request.post(apiTestData.createBooking.request.resource, {
         data: apiTestData.createBooking.request.payload,
-        headers: apiTestData.createBooking.request.headers
+        // headers: apiTestData.createBooking.request.headers //--configured in config file
     });
     const bookingJsonResponse = await createBookingResponse.json();
     console.log(bookingJsonResponse);
@@ -89,7 +89,6 @@ test('Verify that the user is able to update an existing booking using PUT API: 
     const updateBookingResponse = await request.put(`${apiTestData.updateBooking.request.resource}/${createdBookingID}`, {
         data: apiTestData.updateBooking.request.payload,
         headers: apiTestData.updateBooking.request.headers
-
     });
     const bookingJsonResponse = await updateBookingResponse.json();
     console.log(bookingJsonResponse);

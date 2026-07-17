@@ -17,7 +17,7 @@ dotenv.config({
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-  testDir: './tests',
+  testDir: './tests/uiTests',
   /* Run tests in files in parallel */
   fullyParallel: false,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -32,8 +32,9 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',
-    baseURL: process.env.API_BASE_URL,
-    //--avoid adding headers here, as it may cause errors in UI tests execution
+
+    //--avoid adding here, as it may cause errors in UI tests execution
+    // baseURL: process.env.API_BASE_URL,
     // extraHTTPHeaders:{
     //   Accept: 'application/json',
         // Authorization: "Basic YWRtaW46cGFzc3dvcmQxMjM="
@@ -79,7 +80,15 @@ export default defineConfig({
     },
     {
       name: 'apiTest',
-      testDir: './tests/apiTests'
+      testDir: './tests/apiTests',
+      use: {
+        baseURL: process.env.API_BASE_URL,
+        extraHTTPHeaders: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+          // Authorization: "Basic YWRtaW46cGFzc3dvcmQxMjM="
+        },
+      }
     },
 
     /* Test against mobile viewports. */

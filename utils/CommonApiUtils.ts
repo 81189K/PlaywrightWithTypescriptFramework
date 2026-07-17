@@ -17,7 +17,7 @@ export default class CommonApiUtils {
         apiTestData.createAuthToken.request.payload.password = commonUtils.decrypt(process.env.API_PASSWORD!);
 
         const createTokenResponse = await this.request.post(apiTestData.createAuthToken.request.resource, {
-            headers: apiTestData.createAuthToken.request.headers,
+            // headers: apiTestData.createAuthToken.request.headers,
             data: apiTestData.createAuthToken.request.payload
         })
 

@@ -12,10 +12,6 @@
     "createBooking": {
         "request":{
             "resource": "/booking",
-            "headers": {
-                "Accept": "application/json",
-                "Content-Type": "application/json"
-            },
             "payload": {
                 "firstname": "Jim",
                 "lastname": "Son",
@@ -37,8 +33,6 @@
         "request":{
             "resource": "/booking",
             "headers": {
-                "Accept": "application/json",
-                "Content-Type": "application/json",
                 "Authorization": "Basic YWRtaW46cGFzc3dvcmQxMjM=" 
             },
             "payload": {
@@ -61,9 +55,6 @@
     "createAuthToken": {
         "request":{
             "resource": "auth",
-            "headers": {
-                "Content-Type": "application/json"
-            },
             "payload": {
                 "username": "{{apiUsername}}",
                 "password": "{{apiPassword}}"
@@ -78,8 +69,6 @@
         "request":{
             "resource": "/booking",
             "headers": {
-                "Accept": "application/json",
-                "Content-Type": "application/json",
                 "Cookie": "token={{authToken}}" 
             },
             "payload": {
@@ -103,8 +92,6 @@
         "request":{
             "resource": "/booking",
             "headers": {
-                "Accept": "application/json",
-                "Content-Type": "application/json",
                 "Cookie": "token={{authToken}}" 
             },
             "payload": {
@@ -121,7 +108,6 @@
         "request":{
             "resource": "/booking/{{ID}}",
             "headers": {
-                "Content-Type": "application/json",
                 "Cookie": "token={{authToken}}" 
             }
         },
