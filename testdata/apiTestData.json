@@ -108,5 +108,23 @@
             "statusCode": 200,
             "statusText": "OK"
         }
+    },
+    "patchBooking": {
+        "request":{
+            "resource": "/booking/1",
+            "headers": {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Cookie": "token={{authToken}}" 
+            },
+            "payload": {
+                "firstname": "James",
+                "lastname": "Brown"
+            }
+        },
+        "response":{
+            "statusCode": 200,
+            "statusText": "OK"
+        }
     }
 }

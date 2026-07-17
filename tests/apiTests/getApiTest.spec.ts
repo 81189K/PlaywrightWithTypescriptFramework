@@ -119,3 +119,29 @@ test('Verify that the user is able to update an existing booking using PUT API: 
     //verify response body
     expect(bookingJsonResponse).toMatchObject(apiTestData.updateBooking2.request.payload);
 });
+
+test('Verify that the user is able to update an existing booking using PATCH API: using Basic Authentication', {
+    tag: ['@API', '@SMOKE'],
+    annotation: {
+        type: "HTTP Method",
+        description: "PATCH call using Basic Authentication"
+    }
+}, async({ request, commonApiUtilsFixture })=>{
+    const authToken = await commonApiUtilsFixture.createToken();
+    expect(authToken).toMatch(/\S+/); //any non-whitespace character
+    //update token value in apiTestData
+    apiTestData.patchBooking.request.headers.Cookie = apiTestData.patchBooking.request.headers.Cookie.replace("{{authToken}}", authToken)
+    
+    const patchBookingResponse = await request.patch(apiTestData.patchBooking.request.resource, {
+        data: apiTestData.patchBooking.request.payload,
+        headers: apiTestData.patchBooking.request.headers
+    });
+    const bookingJsonResponse = await patchBookingResponse.json();
+    console.log(bookingJsonResponse);
+    //verify response code
+    expect(patchBookingResponse.status()).toBe(apiTestData.patchBooking.response.statusCode);
+
+    //verify response body
+    expect(bookingJsonResponse.firstname).toMatch(apiTestData.patchBooking.request.payload.firstname);
+    expect(bookingJsonResponse.lastname).toMatch(apiTestData.patchBooking.request.payload.lastname);
+});
