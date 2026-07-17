@@ -67,5 +67,46 @@
             "statusCode": 200,
             "statusText": "OK"
         }
+    },
+    "createAuthToken": {
+        "request":{
+            "resource": "auth",
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "payload": {
+                "username": "{{apiUsername}}",
+                "password": "{{apiPassword}}"
+            }
+        },
+        "response":{
+            "statusCode": 200,
+            "statusText": "OK"
+        }
+    },
+    "updateBooking2": {
+        "request":{
+            "resource": "/booking/1",
+            "headers": {
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Cookie": "token={{authToken}}" 
+            },
+            "payload": {
+                "firstname": "Will",
+                "lastname": "Jackson",
+                "totalprice": 11111,
+                "depositpaid": true,
+                "bookingdates": {
+                    "checkin": "2026-07-01",
+                    "checkout": "2026-07-07"
+                },
+                "additionalneeds": "Breakfast"
+            }
+        },
+        "response":{
+            "statusCode": 200,
+            "statusText": "OK"
+        }
     }
 }

@@ -74,11 +74,11 @@ test('Verify that the user is able to create new booking using POST API', {
     expect(bookingJsonResponse.booking).toMatchObject(apiTestData.createBooking.request.payload);
 });
 
-test('Verify that the user is able to update an existing booking using PUT API', {
+test('Verify that the user is able to update an existing booking using PUT API: using API Key', {
     tag: ['@API', '@SMOKE'],
     annotation: {
         type: "HTTP Method",
-        description: "PUT"
+        description: "PUT call using API Key"
     }
 }, async ({ request }) => {
     const updateBookingResponse = await request.put(apiTestData.updateBooking.request.resource, {
@@ -93,4 +93,29 @@ test('Verify that the user is able to update an existing booking using PUT API',
 
     //verify response body
     expect(bookingJsonResponse).toMatchObject(apiTestData.updateBooking.request.payload);
+});
+
+test('Verify that the user is able to update an existing booking using PUT API: using Basic Authentication', {
+    tag: ['@API', '@SMOKE'],
+    annotation: {
+        type: "HTTP Method",
+        description: "PUT call using Basic Authentication"
+    }
+}, async ({ request, commonApiUtilsFixture }) => {
+    const authToken = await commonApiUtilsFixture.createToken();
+    expect(authToken).toMatch(/\S+/); //any non-whitespace character
+    //update token value in apiTestData
+    apiTestData.updateBooking2.request.headers.Cookie = apiTestData.updateBooking2.request.headers.Cookie.replace("{{authToken}}", authToken)
+    
+    const updateBookingResponse = await request.put(apiTestData.updateBooking2.request.resource, {
+        data: apiTestData.updateBooking2.request.payload,
+        headers: apiTestData.updateBooking2.request.headers
+    });
+    const bookingJsonResponse = await updateBookingResponse.json();
+    console.log(bookingJsonResponse);
+    //verify response code
+    expect(updateBookingResponse.status()).toBe(apiTestData.updateBooking2.response.statusCode);
+
+    //verify response body
+    expect(bookingJsonResponse).toMatchObject(apiTestData.updateBooking2.request.payload);
 });
