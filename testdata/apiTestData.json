@@ -1,5 +1,5 @@
 {
-    "GET_ALL": {
+    "GET": {
         "request":{
             "resource": "/booking"
         },
@@ -7,16 +7,6 @@
             "statusCode": 200,
             "statusText": "OK",
             "headerContentType": "application/json; charset=utf-8"
-        }
-    },
-    "GET_ID": {
-        "request":{
-            "resource": "/booking",
-            "ID":1
-        },
-        "response":{
-            "statusCode": 200,
-            "statusText": "OK"
         }
     },
     "createBooking": {
@@ -45,7 +35,7 @@
     },
     "updateBooking": {
         "request":{
-            "resource": "/booking/1",
+            "resource": "/booking",
             "headers": {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
@@ -54,7 +44,7 @@
             "payload": {
                 "firstname": "Jim",
                 "lastname": "Smith",
-                "totalprice": 111,
+                "totalprice": 222,
                 "depositpaid": true,
                 "bookingdates": {
                     "checkin": "2026-07-01",
@@ -86,7 +76,7 @@
     },
     "updateBooking2": {
         "request":{
-            "resource": "/booking/1",
+            "resource": "/booking",
             "headers": {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
@@ -95,7 +85,7 @@
             "payload": {
                 "firstname": "Will",
                 "lastname": "Jackson",
-                "totalprice": 11111,
+                "totalprice": 333,
                 "depositpaid": true,
                 "bookingdates": {
                     "checkin": "2026-07-01",
@@ -111,7 +101,7 @@
     },
     "patchBooking": {
         "request":{
-            "resource": "/booking/1",
+            "resource": "/booking",
             "headers": {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
@@ -126,5 +116,22 @@
             "statusCode": 200,
             "statusText": "OK"
         }
+    },
+    "deleteBooking": {
+        "request":{
+            "resource": "/booking/{{ID}}",
+            "headers": {
+                "Content-Type": "application/json",
+                "Cookie": "token={{authToken}}" 
+            }
+        },
+        "response":{
+            "statusCode": 201,
+            "statusText": "Created"
+        }
+    },
+    "verifyDeletion": {
+        "statusCode": 404,
+        "statusText": "Not Found"
     }
 }
